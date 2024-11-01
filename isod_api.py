@@ -1,20 +1,35 @@
-#made by Oskar Przybylski on 1.11.2024
-
 import requests
-from colorama import Fore, Style, init
+import json
+from colorama import Fore, Style,Back, init
 import time
 
 base_url = "http://isod.ee.pw.edu.pl/isod-portal/wapi"
 params = {
     "q": "mynewsheaders",
-    "username": " :D   ", #wstaw login z isoda: "imie.nazwisko"
-    "apikey": " :D   ",   #wstaw klucz api: "XXXXXXXXXX"
+    "username": "oskar.przybylski", #wstaw login z isoda: "imie.nazwisko"
+    "apikey": "DBE9hffGMcme8QocZRzA0w",   #wstaw klucz api: "XXXXXXXXXX"
     "from": "0",
     "to": "5",
 }
 
+max_retries = 5
+delay = 3
+
 start_time = time.perf_counter()
-response = requests.get(base_url, params=params)
+for attempt in range(max_retries):
+    try:
+        response = requests.get(base_url, params=params)
+        response.raise_for_status()
+        data = response.json()
+        break
+    except requests.exceptions.ConnectionError:
+        print(f"Próba polaczenia z serwerem isod nr.{attempt + 1} nieudana. Ponawiam próbę za {delay} sekund...")
+        time.sleep(delay)
+    except requests.exceptions.HTTPError as err:
+        print("Błąd HTTP:", err)
+        break
+else:
+    print("Nie udało się nawiązać połączenia po maksymalnej liczbie prób.")
 end_time = time.perf_counter()
 
 request_duration = end_time - start_time
