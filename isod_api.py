@@ -6,8 +6,8 @@ import time
 base_url = "http://isod.ee.pw.edu.pl/isod-portal/wapi"
 params = {
     "q": "mynewsheaders",
-    "username": "oskar.przybylski", #wstaw login z isoda: "imie.nazwisko"
-    "apikey": "DBE9hffGMcme8QocZRzA0w",   #wstaw klucz api: "XXXXXXXXXX"
+    "username": " :D", #wstaw login z isoda: "imie.nazwisko"
+    "apikey": " :D",   #wstaw klucz api: "XXXXXXXXXX"
     "from": "0",
     "to": "5",
 }
