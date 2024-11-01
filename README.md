@@ -4,3 +4,4 @@ Instrukcja dopisania skryptu do pliku conf powloki
 - nano ~/.zshrc (jesli uzywasz z shell jak chad)
 - dopisac "python -W ignore isod_api.py" na koncu pliku
 - zapisac
+![Alt text](/oskar-przybylski/Isod_Api_Cli/main/preview.png?raw=true "Optional Title")
